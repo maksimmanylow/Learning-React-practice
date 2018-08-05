@@ -47,7 +47,6 @@ Mini-css-extract-plugin
 https://github.com/webpack-contrib/mini-css-extract-plugin
 https://webpack.js.org/plugins/mini-css-extract-plugin/
 
-
 Getting Started: React app with Express server
 https://medium.com/front-end-hacking/getting-started-with-your-react-app-with-express-server-1c701a3c6edb
 
@@ -81,17 +80,12 @@ https://medium.com/@pshrmn/a-simple-react-router-v4-tutorial-7f23ff27adf
 React Router v4: The Complete Guide
 https://www.sitepoint.com/react-router-v4-complete-guide/
 
+Configure ESLint, Prettier, and Flow in VS Code for React Development
+https://medium.com/@sgroff04/configure-eslint-prettier-and-flow-in-vs-code-for-react-development-c9d95db07213
 
-
+Integrating Prettier + ESLint + Airbnb Style Guide in VSCode
+https://blog.echobind.com/integrating-prettier-eslint-airbnb-style-guide-in-vscode-47f07b5d7d6a
+
 TODO:
-- Start working on backend (use mern stack backend)
-- Implement routing on back- and front-end
-- Finish components
-- Add support for elasticsearch
-- Update the blog app in production
-- Implement PropType validation
-- Implement ESlint linting
-- serviceworker
-- styled components
-- create-react-app: pros and cons
-- Gatsby
+
+- https://flow.org/en/
