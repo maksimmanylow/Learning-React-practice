@@ -6,29 +6,29 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const precss = require('precss');
 const autoprefixer = require('autoprefixer');
 
-
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './index.html',
   filename: 'index.html',
-  inject: 'body',
+  inject: 'body'
 });
 const devMode = process.env.NODE_ENV !== 'production';
 const BUILD_DIR = path.resolve(__dirname, './build');
 const APP_DIR = path.resolve(__dirname, './src/client');
+const REDUX_APP_DIR = path.resolve(__dirname, './src/client/redux');
 
 module.exports = {
   entry: {
-    main: `${APP_DIR}/index.js`,
+    main: `${REDUX_APP_DIR}/store/store.js`
   },
   output: {
     path: BUILD_DIR,
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: BUILD_DIR,
-    port: 3000,
+    port: 3000
   },
   optimization: {
     splitChunks: {
@@ -37,18 +37,18 @@ module.exports = {
           name: 'styles',
           test: /\.css$/,
           chunks: 'all',
-          enforce: true,
-        },
-      },
+          enforce: true
+        }
+      }
     },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true, // set to true if you want JS source maps
+        sourceMap: true // set to true if you want JS source maps
       }),
-      new OptimizeCSSAssetsPlugin({}),
-    ],
+      new OptimizeCSSAssetsPlugin({})
+    ]
   },
   module: {
     rules: [
@@ -59,9 +59,9 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             cacheDirectory: true,
-            presets: ['react', 'env'],
-          },
-        },
+            presets: ['react', 'env']
+          }
+        }
       },
       {
         test: /\.(sa|sc|c)ss$/,
@@ -71,18 +71,16 @@ module.exports = {
           {
             loader: 'postcss-loader', // Run post css actions
             options: {
-              plugins() { // post css plugins, can be exported to postcss.config.js
-                return [
-                  precss,
-                  autoprefixer,
-                ];
-              },
-            },
+              plugins() {
+                // post css plugins, can be exported to postcss.config.js
+                return [precss, autoprefixer];
+              }
+            }
           },
-          'sass-loader',
-        ],
-      },
-    ],
+          'sass-loader'
+        ]
+      }
+    ]
   },
   plugins: [
     HtmlWebpackPluginConfig,
@@ -90,10 +88,10 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-    }),
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+    })
   ],
   resolve: {
     extensions: ['.js', '.jsx']
-  },
+  }
 };

@@ -3,7 +3,8 @@ const path = require('path');
 
 const BUILD_DIR = path.resolve(__dirname, './../../build');
 
-const logger = (req, res, next) => { // first middleware function
+const logger = (req, res, next) => {
+  // logger middleware function
   console.log(`${req.method} request for ${req.url}`);
   next();
 };
@@ -21,4 +22,6 @@ app.get('/ping', (req, res) => res.send('pong'));
 
 app.get('/', (req, res) => res.sendFile(path.resolve(BUILD_DIR, 'index.html')));
 
-app.listen(process.env.PORT || 3001, () => console.log('Express app is running at `http://localhost:3001`'));
+app.listen(process.env.PORT || 3001, () =>
+  console.log('Express app is running at `http://localhost:3001`')
+);
