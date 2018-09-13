@@ -1,23 +1,16 @@
-import React from "react";
-import { v4 } from "uuid";
-import AddColorForm from "./AddColorForm";
-import ColorList from "./ColorList";
+import React from 'react';
+import { v4 } from 'uuid';
+import AddColorForm from './AddColorForm';
+import ColorList from './ColorList';
 
-const logColor = (title, color) =>
-  console.log(`New Color: ${title} | ${color}`);
+const logColor = (title, color) => console.log(`New Color: ${title} | ${color}`);
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      colors: []
-    };
-    this.addColor = this.addColor.bind(this);
-    this.rateColor = this.rateColor.bind(this);
-    this.removeColor = this.removeColor.bind(this);
-  }
+  state = {
+    colors: []
+  };
 
-  addColor(title, color) {
+  addColor = (title, color) => {
     const colors = [
       ...this.state.colors,
       {
@@ -28,9 +21,9 @@ class App extends React.Component {
       }
     ];
     this.setState({ colors });
-  }
+  };
 
-  rateColor(id, rating) {
+  rateColor = (id, rating) => {
     const colors = this.state.colors.map(
       color =>
         color.id !== id
@@ -40,13 +33,13 @@ class App extends React.Component {
               rating
             }
     );
-    this.setState({colors});
-  }
+    this.setState({ colors });
+  };
 
-  removeColor(id) {
+  removeColor = id => {
     const colors = this.state.colors.filter(color => color.id !== id);
-    this.setState({colors});
-  }
+    this.setState({ colors });
+  };
 
   render() {
     const { addColor, removeColor, rateColor } = this;

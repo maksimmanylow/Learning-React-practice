@@ -5,7 +5,7 @@ import 'popper.js'; // Import Bootstrap’s dependencies
 import 'jquery'; // Import Bootstrap’s dependencies
 import './static/scss/main.scss';
 
-import App from './components/module/app';
+import App from './components/colorManager/App';
 
 window.React = React;
 

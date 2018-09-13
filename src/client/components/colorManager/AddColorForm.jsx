@@ -4,7 +4,7 @@ const AddColorForm = ({ onNewColor = f => f }) => {
   let _title;
   let _color;
 
-  const submit = (e) => {
+  const submit = e => {
     e.preventDefault();
     onNewColor(_title.value, _color.value);
     _title.value = '';
