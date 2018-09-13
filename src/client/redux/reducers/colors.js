@@ -1,4 +1,4 @@
-import C from './constants';
+import C from '../actions/constants';
 import color from './color';
 
 const colors = (state = [], action) => {
