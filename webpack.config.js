@@ -13,12 +13,12 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 const devMode = process.env.NODE_ENV !== 'production';
 const BUILD_DIR = path.resolve(__dirname, './build');
-const APP_DIR = path.resolve(__dirname, './src/client');
-const REDUX_APP_DIR = path.resolve(__dirname, './src/client/redux');
+const COLOR_MANAGER_APP_ENTRY = path.resolve(__dirname, './src/client/index.js');
+const REDUX_APP_ENTRY = path.resolve(__dirname, './src/client/redux/store/store.js');
 
 module.exports = {
   entry: {
-    main: `${REDUX_APP_DIR}/store/store.js`
+    main: `${COLOR_MANAGER_APP_ENTRY}`
   },
   output: {
     path: BUILD_DIR,
@@ -56,11 +56,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            cacheDirectory: true,
-            presets: ['react', 'env']
-          }
+          loader: 'babel-loader'
         }
       },
       {
