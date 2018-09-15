@@ -18,7 +18,7 @@ const REDUX_APP_ENTRY = path.resolve(__dirname, './src/client/redux/store/store.
 
 module.exports = {
   entry: {
-    main: `${COLOR_MANAGER_APP_ENTRY}`
+    main: `${REDUX_APP_ENTRY}`
   },
   output: {
     path: BUILD_DIR,
